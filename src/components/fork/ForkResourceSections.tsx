@@ -1,8 +1,6 @@
-import { ExternalLinkWithWarning } from "@/components/ui/ExternalLinkWithWarning";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { exchangeGroups } from "@/content/fork/exchange-support";
 import { scamWarningCopy } from "@/content/fork/scam-warning";
-import { tokenGroups } from "@/content/fork/token-links";
 import { ExchangeSupportDisclosure } from "./ExchangeSupportDisclosure";
 
 function WarningIcon({ tone }: { tone: "amber" | "red" }) {
@@ -41,43 +39,6 @@ export function ScamWarningSection() {
             </p>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-export function TokenLinksSection() {
-  return (
-    <section
-      aria-labelledby="token-links-title"
-      className="scroll-mt-36 space-y-4"
-      id="token-links"
-    >
-      <SectionHeader
-        eyebrow="Token references"
-        id="token-links-title"
-        title="Official token links"
-      />
-
-      <div className="grid gap-4 lg:grid-cols-3">
-        {tokenGroups.map((group) => (
-          <article className="polished-card p-4" key={group.title}>
-            <h3 className="font-display text-3xl uppercase leading-none text-foreground">
-              &gt;_ {group.title}
-            </h3>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {group.links.map((link) => (
-                <ExternalLinkWithWarning
-                  className="btn-terminal-secondary min-h-10 px-4 py-2"
-                  href={link.href}
-                  key={link.href}
-                >
-                  {link.label}
-                </ExternalLinkWithWarning>
-              ))}
-            </div>
-          </article>
-        ))}
       </div>
     </section>
   );
